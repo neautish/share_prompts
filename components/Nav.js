@@ -57,7 +57,7 @@ function Nav() {
 											signIn(provider.id);
 										}}
 									>
-										<img src={`/assets/icons/${provider.name}.svg`} alt={provider.name} width={40} height={40} />
+										<img src={`/assets/icons/${provider.name}.svg`} alt={provider.name} width={37} height={37} />
 									</button>
 								))}
 						</div>

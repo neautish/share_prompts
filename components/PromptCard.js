@@ -33,7 +33,7 @@ function PromptCard({ post, handleTagClick, handleEdit, handleDelete }) {
 					<Image src={post?.creator?.image} alt="user" width={40} height={40} className="rounded-full object-contain" />
 				</div>
 
-				<div className="flex flex-col">
+				<div className="flex flex-col cursor-pointer" onClick={handleProfileClick}>
 					<h3 className="font-satoshi font-semibold text-gray-900">{post?.creator?.username}</h3>
 					<p className="font-inter text-sm text-gray-500">{post?.creator?.email}</p>
 				</div>
