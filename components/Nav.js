@@ -45,7 +45,9 @@ function Nav() {
 							</Link>
 						</div>
 					) : (
-						<>
+						<div className="flex items-center gap-1">
+							<span className="text-sm font-semibold font-satoshi">Login with: </span>
+
 							{providers &&
 								Object.values(providers).map((provider) => (
 									<button
@@ -54,12 +56,11 @@ function Nav() {
 										onClick={() => {
 											signIn(provider.id);
 										}}
-										className="black_btn"
 									>
-										Sign In with {provider.name}
+										<img src={`/assets/icons/${provider.name}.svg`} alt={provider.name} width={40} height={40} />
 									</button>
 								))}
-						</>
+						</div>
 					)}
 				</div>
 
@@ -108,9 +109,8 @@ function Nav() {
 										onClick={() => {
 											signIn(provider.id);
 										}}
-										className="black_btn"
 									>
-										Sign In with {provider.name}
+										<img src={`/assets/icons/${provider.name}.svg`} alt={provider.name} width={40} height={40} />
 									</button>
 								))}
 						</>
