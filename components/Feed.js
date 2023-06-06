@@ -21,14 +21,14 @@ function Feed() {
 	const [searchTimeout, setSearchTimeout] = useState(null);
 	const [searchedResults, setSearchedResults] = useState([]);
 
+	const fetchPosts = async () => {
+		const response = await fetch("/api/prompt");
+		const data = await response.json();
+
+		setAllPosts(data);
+	};
+
 	useEffect(() => {
-		const fetchPosts = async () => {
-			const response = await fetch("/api/prompt");
-			const data = await response.json();
-
-			setAllPosts(data);
-		};
-
 		fetchPosts();
 	}, []);
 
