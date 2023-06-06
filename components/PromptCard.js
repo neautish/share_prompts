@@ -8,7 +8,15 @@ import { usePathname, useRouter } from "next/navigation";
 function PromptCard({ post, handleTagClick, handleEdit, handleDelete }) {
 	const { data: session } = useSession();
 	const pathname = usePathname();
+	const router = useRouter();
 	const [copied, setCopied] = useState("");
+
+	const handleProfileClick = () => {
+		if (session?.user.id === post.creator._id) {
+			return router.push("./profile");
+		}
+		return router.push(`/profile/${post.creator._id}?name=${post.creator.username}`);
+	};
 
 	const handleCopy = () => {
 		setCopied(post.prompt);
@@ -21,7 +29,7 @@ function PromptCard({ post, handleTagClick, handleEdit, handleDelete }) {
 	return (
 		<div className="prompt_card">
 			<div className="flex justify-between items-start gap-5">
-				<div className="flex-1 flex justify-start items-center gap-3 cursor-pointer">
+				<div className="flex-1 flex justify-start items-center gap-3 cursor-pointer" onClick={handleProfileClick}>
 					<Image src={post?.creator?.image} alt="user" width={40} height={40} className="rounded-full object-contain" />
 				</div>
 
