@@ -27,6 +27,7 @@ const handler = NextAuth({
 			return session;
 		},
 		async signIn({ profile }) {
+			console.log(profile);
 			try {
 				await connectToDB();
 
@@ -38,7 +39,7 @@ const handler = NextAuth({
 					await User.create({
 						email: profile.email,
 						username: profile.name.replace(" ", "").toLowerCase(),
-						image: profile.picture,
+						image: profile.picture || profile.avatar_url || "",
 					});
 				}
 

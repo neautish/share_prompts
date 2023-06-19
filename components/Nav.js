@@ -6,7 +6,8 @@ import Image from "next/image";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 function Nav() {
-	const { data: session } = useSession();
+	const { data: session, status } = useSession();
+	console.log(status);
 
 	// const [session, setSession] = useState(true);
 	const [toggleDropdown, setToggleDropdown] = useState(false);
